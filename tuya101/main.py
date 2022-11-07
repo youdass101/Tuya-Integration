@@ -1,9 +1,13 @@
 # from PyQt6 import QtWidgets
-from tuya_auth import *
+# from tuya_auth import *
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel
 import sys
 
 def window():
+
+
+    def pp():
+        print("fuck")
     # connecting and getting system information 
     app = QApplication(sys.argv)
     # creating the windows
@@ -24,10 +28,7 @@ def window():
     button.setText("first but")
     button.move(80, 80)
     button.setCheckable(True)
-    button.clicked.connect(
-
-    )
-
+    button.clicked.connect(pp)
 
 
 
