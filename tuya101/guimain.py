@@ -1,5 +1,6 @@
 # from PyQt6 import QtWidgets
-# from tuya_auth import *
+from tuya_auth import *
+
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel
 import sys
 
@@ -7,7 +8,10 @@ def window():
 
 
     def pp():
-        print("fuck")
+        plug = tuya_auth()
+        plug.turnon()
+
+
     # connecting and getting system information 
     app = QApplication(sys.argv)
     # creating the windows
@@ -18,11 +22,11 @@ def window():
     win.setWindowTitle("The new Home!")
 
     # creating a lable 
-    label = QLabel(win)
+    # label = QLabel(win)
     # set label text 
-    label.setText("first label")
+    # label.setText("first label")
     # setting the lable positiojn in the window 
-    label.move(40, 50)
+    # label.move(40, 50)
 
     button = QPushButton(win)
     button.setText("first but")
