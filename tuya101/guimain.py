@@ -1,7 +1,11 @@
-# from PyQt6 import QtWidgets
+# internal file
 from tuya_auth import *
-
-from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel
+# to send command to cmd windows
+import os
+# to get os typre release and verion 
+import platform
+# qt6 librartry
+from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton
 import sys
 
 def window():
@@ -12,6 +16,12 @@ def window():
 
     def off():
         plug.turnoff()
+
+    def sendcmd():
+        command = os.system(f'cmd /c "{"spotify"}"')
+        print(platform.system())
+
+        return command
 
 
     # connecting and getting system information 
@@ -41,6 +51,12 @@ def window():
     onplug.move(80, 50)
     onplug.setCheckable(True)
     onplug.clicked.connect(off)
+
+    oscommand = QPushButton(win)
+    oscommand.setText("send OS cmd")
+    oscommand.move(80, 110)
+    oscommand.setCheckable(True)
+    oscommand.clicked.connect(sendcmd)
 
 
 
