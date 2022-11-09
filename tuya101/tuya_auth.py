@@ -25,15 +25,27 @@ class tuya_auth():
 
     def turnon (self):
 
-        PLUG1 = "41750342b8f009020932"
-        # PLUG1 = "bf46f70e749d759f99gtu6"
+        # PLUG1 = "41750342b8f009020932"
+        PLUG1 = "bf10b6c2c45b0d3eaawibx"
 
         # print("saving device statue")
         # status = openapi.get("/v1.0/iot-03/devices/{}/status".format(PLUG1))
 
-        print("sending command")
-        commands = {'commands':[{'code': 'switch', 'value': True}]}
+        commands = {'commands':[{'code': 'switch_led', 'value': True}]}
         self.openapi.post('/v1.0/iot-03/devices/{}/commands'.format(PLUG1), commands)
+
+    def turnoff (self):
+
+        # PLUG1 = "41750342b8f009020932"
+        PLUG1 = "bf10b6c2c45b0d3eaawibx"
+
+        # print("saving device statue")
+        # status = openapi.get("/v1.0/iot-03/devices/{}/status".format(PLUG1))
+
+        commands = {'commands':[{'code': 'switch_led', 'value': False}]}
+        self.openapi.post('/v1.0/iot-03/devices/{}/commands'.format(PLUG1), commands)
+
+    
 
 # Call any API from Tuya
 # device details information

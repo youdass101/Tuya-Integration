@@ -6,10 +6,12 @@ import sys
 
 def window():
 
-
-    def pp():
-        plug = tuya_auth()
+    plug = tuya_auth()
+    def on():
         plug.turnon()
+
+    def off():
+        plug.turnoff()
 
 
     # connecting and getting system information 
@@ -28,11 +30,17 @@ def window():
     # setting the lable positiojn in the window 
     # label.move(40, 50)
 
-    button = QPushButton(win)
-    button.setText("first but")
-    button.move(80, 80)
-    button.setCheckable(True)
-    button.clicked.connect(pp)
+    offplug = QPushButton(win)
+    offplug.setText("Plug On")
+    offplug.move(80, 80)
+    offplug.setCheckable(True)
+    offplug.clicked.connect(on)
+
+    onplug = QPushButton(win)
+    onplug.setText("PLug Off")
+    onplug.move(80, 50)
+    onplug.setCheckable(True)
+    onplug.clicked.connect(off)
 
 
 
